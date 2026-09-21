@@ -46,10 +46,10 @@ function Waveform({ frequency, samplingRate }: { frequency: number; samplingRate
 
   return (
     <div className="waveform" ref={stage}>
-      <svg viewBox={`0 0 ${size.width} ${size.height}`} role="img" aria-labelledby={descriptionId}>
-        <title id={descriptionId}>
+      <svg viewBox={`0 0 ${size.width} ${size.height}`} role="img" aria-label="True signal and sampled reconstruction" aria-describedby={descriptionId}>
+        <desc id={descriptionId}>
           {`True signal at ${frequency.toFixed(1)} hertz in periwinkle and its lowest-frequency sampled reconstruction at ${Math.abs(alias).toFixed(1)} hertz in aqua. Ivory dots are samples taken ${samplingRate.toFixed(1)} times per second; each lies on both curves. The view spans two seconds. ${frequency < samplingRate / 2 ? 'The curves coincide because the sampling rate is above twice the signal frequency.' : frequency === samplingRate / 2 ? 'The signal is exactly at the Nyquist limit.' : 'The sampling rate is too low to distinguish the true signal from its alias.'}`}
-        </title>
+        </desc>
         <path className="true-signal" d={signalPath(frequency, size.width, size.height)} />
         <path className="alias-signal" d={signalPath(alias, size.width, size.height)} />
         {samples(frequency, samplingRate).map(({ index, time, value }) => {

@@ -16,7 +16,7 @@ The user approved correcting the original subtitle spelling to `disguise`. The s
 - The user selected two curves plus sample dots, stationary and updated only through the sliders.
 - After reviewing the local page, the user authorized a GitHub repository, commit and push, and a GitHub Pages website. The public repository is `CSProfKGD/signal-aliasing`; the website URL is `https://csprofkgd.github.io/signal-aliasing/`.
 - SVG displays the analytic true signal in periwinkle `#899ce8`, the reconstructed alias in aqua `#63e6de`, and sample dots in warm ivory `#f2edda`.
-- The plot has no visible labels, axes, gridlines, or legend. A screen-reader description identifies both curves and their relationship.
+- The plot has no visible labels, axes, gridlines, legend, or hover bubbles. A screen-reader description identifies both curves and their relationship using SVG `desc` and `aria-describedby`; SVG `title` is deliberately omitted to prevent native hover tooltips.
 - The full-width plot fades to transparent across its first and last 10%, using a CSS opacity mask. Amplitude is unchanged.
 - Two controls sit below the plot, with labels and current values. Desktop uses inline rows; narrow layouts put the track under each label/value pair.
 - Both controls display `Hz`, with labels `Signal frequency` and `Sampling frequency`. Sampling frequency counts samples per second, while signal frequency counts cycles per second; the shared unit makes their comparison direct.

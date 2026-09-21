@@ -8,6 +8,7 @@ Build and maintain the local Signal Aliasing educational webpage. The user-appro
 - Keep the title tracking at `-.045em`. Control labels use muted light gray at `1rem`/`500`; numeric values use aqua at weight `500`, and units use smaller neutral gray at weight `400`. Align numbers and units in separate consistent columns and keep the values close to the tracks. Slider thumbs must have no halo or shadow, including on hover. Preserve visible keyboard focus.
 - Match the Global vs rolling shutter project's pure-black stage, top-left typography, and thin aqua native sliders. Do not edit that reference project.
 - Show two stationary curves with shared sample dots. Do not add automatic motion, axes, gridlines, legends, plot labels, cards, or extra controls.
+- Do not show hover tooltips or pop-up bubbles. Use an SVG `desc` referenced by `aria-describedby` for the waveform description, not an SVG `title` that triggers a native tooltip.
 - Curves span the viewport width and fade through opacity over the outermost 10% at each horizontal edge. Never alter signal amplitude to create the fade.
 - Periwinkle denotes the true signal, aqua the reconstruction, and warm ivory the sample points.
 - Preserve the two-second window, unit amplitude, fixed zero-phase cosine, and documented slider ranges/defaults.
