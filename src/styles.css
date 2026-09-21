@@ -1,0 +1,105 @@
+:root {
+  color-scheme: dark;
+  --ink: #f5f5f7;
+  --muted: #8d8d93;
+  --aqua: #63e6de;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: #000;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+* { box-sizing: border-box; }
+html, body, #root { min-width: 320px; min-height: 100%; margin: 0; }
+body { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+input { font: inherit; }
+.site-shell { min-height: 100svh; padding-bottom: 48px; }
+.hero { padding: 34px clamp(24px, 4vw, 64px) 0; }
+h1 {
+  margin: 0;
+  font-size: clamp(3.25rem, 4.25vw, 4rem);
+  font-weight: 760;
+  letter-spacing: -.045em;
+  line-height: .98;
+}
+.subtitle {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.12rem, 1.4vw, 1.35rem);
+  font-weight: 450;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+}
+.experiment { margin-top: clamp(50px, 9vh, 106px); }
+.waveform {
+  width: 100%;
+  height: clamp(240px, 43vh, 490px);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.waveform svg { display: block; width: 100%; height: 100%; overflow: hidden; }
+.waveform path { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.true-signal { stroke: #899ce8; }
+.alias-signal { stroke: var(--aqua); }
+.sample { fill: #f2edda; stroke: #000; stroke-width: 1.5; }
+.control-dock {
+  width: min(42.5rem, calc(100% - 48px));
+  margin: clamp(26px, 5vh, 52px) auto 0;
+  display: grid;
+  gap: 20px;
+}
+.control-row {
+  display: grid;
+  grid-template-columns: 10.3125rem minmax(7.5rem, 1fr) 7.5rem;
+  align-items: center;
+  gap: .875rem;
+  min-height: 34px;
+}
+.control-row label { color: #c4c4ca; font-size: 1rem; font-weight: 500; letter-spacing: -.012em; }
+.control-row output {
+  display: grid;
+  grid-template-columns: 3.5ch minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: .4rem;
+  color: var(--aqua);
+  font-size: 1.12rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.control-value { text-align: right; white-space: nowrap; }
+.control-unit { color: var(--muted); font-size: .875rem; font-weight: 400; text-align: left; }
+.control-row input { width: 100%; height: 32px; margin: 0; appearance: none; background: transparent; cursor: pointer; }
+.control-row input::-webkit-slider-runnable-track {
+  height: 2px; border-radius: 99px;
+  background: linear-gradient(90deg, var(--aqua) 0 var(--slider-progress), rgba(255,255,255,.2) var(--slider-progress) 100%);
+}
+.control-row input::-webkit-slider-thumb {
+  width: 13px; height: 13px; margin-top: -5.5px; appearance: none;
+  border: 2px solid #080a0c; border-radius: 50%; background: var(--aqua);
+  box-shadow: none;
+  transition: transform 180ms cubic-bezier(.22,.61,.36,1);
+}
+.control-row input:hover::-webkit-slider-thumb { transform: scale(1.08); }
+.control-row input::-moz-range-track {
+  height: 2px; border: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--aqua) 0 var(--slider-progress), rgba(255,255,255,.2) var(--slider-progress) 100%);
+}
+.control-row input::-moz-range-thumb { width: 9px; height: 9px; border: 2px solid #080a0c; border-radius: 50%; background: var(--aqua); }
+.control-row input:focus-visible { outline: 2px solid var(--aqua); outline-offset: 4px; border-radius: 3px; }
+@media (max-width: 720px) {
+  .hero { padding: 25px 18px 0; }
+  h1 { font-size: clamp(2.35rem, 11vw, 3.25rem); }
+  .subtitle { margin-top: 10px; font-size: 1rem; }
+  .experiment { margin-top: 50px; }
+  .waveform { height: clamp(230px, 36vh, 350px); }
+  .control-dock { width: calc(100% - 48px); max-width: 520px; gap: 22px; margin-top: 28px; }
+  .control-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 7px 16px; }
+  .control-row label, .control-row output { overflow-wrap: anywhere; }
+  .control-row output { white-space: normal; }
+  .control-row input { grid-column: 1 / -1; grid-row: 2; height: 36px; }
+  .control-row output { grid-column: 2; grid-row: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .001ms !important; }
+}
